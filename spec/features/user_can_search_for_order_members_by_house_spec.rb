@@ -13,7 +13,7 @@ RSpec.describe "as a user" do
 
     expect(page).to have_css('.order-member', count: 21)
 
-    within(first('.order-member') do
+    within(first('.order-member')) do
       expect(page).to have_css('.name')
       expect(page).to have_css('.role')
       expect(page).to have_css('.house')
