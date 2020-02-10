@@ -13,9 +13,8 @@ class SearchController < ApplicationController
       member_info[:orderOfThePhoenix] == true
     end
 
-    members = order_members.map do |member_info|
+    @members = order_members.map do |member_info|
       Member.new(member_info)
     end
-    require "pry"; binding.pry
   end
 end
