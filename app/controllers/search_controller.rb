@@ -7,8 +7,15 @@ class SearchController < ApplicationController
 
     response = connection.get("characters?key=#{ENV['POTTER_API_KEY']}&house=Gryffindor")
 
-    gryffindor_members = JSON.parse(response.body)
-    
+    gryffindor_members = JSON.parse(response.body, symbolize_names: true)
+
+    order_members = gryffindor_members.find_all do |member_info|
+      member_info[:orderOfThePhoenix] == true
+    end
+
+    members = order_members.map do |member_info|
+      Member.new(member_info)
+    end
     require "pry"; binding.pry
   end
 end
