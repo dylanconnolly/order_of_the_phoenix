@@ -21,5 +21,13 @@ RSpec.describe "as a user" do
       expect(page).to have_css('.house')
       expect(page).to have_css('.patronus')
     end
+
+    select "Hufflepuff", from: :house
+
+    click_on "Search For Members"
+
+    expect(page).to have_content("Total Members: 3")
+
+    expect(page).to have_css('.order-member', count: 3)
   end
 end
