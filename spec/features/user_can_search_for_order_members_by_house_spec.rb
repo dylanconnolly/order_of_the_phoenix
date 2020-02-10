@@ -11,7 +11,7 @@ RSpec.describe "as a user" do
 
     expect(current_path).to eq(search_path)
 
-    expect(page).to have_content("Total Members: 21")
+    expect(page).to have_content("Total Members in the Order: 21")
 
     expect(page).to have_css('.order-member', count: 21)
 
@@ -26,7 +26,7 @@ RSpec.describe "as a user" do
 
     click_on "Search For Members"
 
-    expect(page).to have_content("Total Members: 3")
+    expect(page).to have_content("Total Members in the Order: 3")
 
     expect(page).to have_css('.order-member', count: 3)
   end
