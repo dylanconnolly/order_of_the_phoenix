@@ -1,4 +1,5 @@
 class Member
+  attr_reader :name, :role, :house, :patronus
 
   def initialize(member_info)
     @name = member_info[:name]
